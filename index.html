@@ -6,41 +6,67 @@
     <title>Valentine's Proposal</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: pink;
-            text-align: center;
+            background: linear-gradient(to bottom, #ffcccb, #ff99cc);
             font-family: 'Arial', sans-serif;
+            overflow: hidden;
         }
-        h1 {
-            color: white;
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 50px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         button {
-            padding: 15px 30px;
-            font-size: 20px;
+            background: #ff69b4;
             border: none;
             border-radius: 5px;
-            background-color: white;
+            color: white;
+            padding: 10px 20px;
             cursor: pointer;
-            transition: transform 0.2s;
+            font-size: 16px;
+            margin: 10px;
+            transition: background 0.3s;
         }
         button:hover {
-            transform: scale(1.1);
+            background: #ff1493;
+        }
+        .hearts {
+            position: absolute;
+            pointer-events: none;
         }
     </style>
-</head>
-<body>
-    <div>
-        <h1>Will You Be My Valentine?</h1>
-        <button onclick="playSound()">Yes, Forever!</button>
-        <audio id="chime" src="path/to/chime-sound.mp3" preload="auto"></audio>
-    </div>
     <script>
         function playSound() {
-            document.getElementById('chime').play();
+            var audio = new Audio('chime.wav');
+            audio.play();
+        }
+        function showConfetti() {
+            // Confetti animation logic here
+            alert('Confetti!');
+        }
+        function showHearts() {
+            // Floating hearts animation logic here
+            alert('Hearts!');
         }
     </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Will You Be My Valentine?</h1>
+            <button onclick="playSound(); showConfetti(); showHearts();">💖 Yes!</button>
+            <button onclick="playSound();">💔 No</button>
+        </div>
+        <div class="hearts">
+            <!-- Floating hearts will be generated here -->
+        </div>
+    </div>
 </body>
 </html>
